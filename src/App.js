@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './App.scss';
+import {useState,useEffect} from 'react'
+import axios from "axios"
+import {useNavigate} from "react-router-dom"
 function App() {
+  const [stores,setStores] = useState([])
+  let nav = useNavigate()
+  const getStores = () => {
+    axios.get("http://localhost:8080/api/stores")
+    .then(function(response){
+      console.log(response.data)
+      setStores(response.data)
+    })
+    .catch((err) => console.log(err))
+  }
+
+  useEffect(()=> {
+    getStores();
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>movie rental store app</h1>
+      {
+        stores.map((store)=> {
+          return (
+            <div className="store-card" key={store.id} onClick={() => {nav(`/stores/${store.id}`)}}>
+              <h3>Store # {store.id}</h3>
+            </div>
+          )
+         
+
+        })
+      }
     </div>
   );
 }

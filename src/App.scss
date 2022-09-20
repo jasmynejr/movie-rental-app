@@ -1,0 +1,11 @@
+
+.store-card {
+  background-color:#E7E393;
+  width: 100px;
+  padding:10px;
+  margin: 10px;
+  text-align: center;
+  &:hover{
+    background-color:#ceca81;
+  }
+}
