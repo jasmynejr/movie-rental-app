@@ -7,6 +7,7 @@ function StoreDetails(){
         manager:{email:""}
     })
     const [storeInventory,setStoreInventory] = useState([])
+    const [storeCustomers,setStoreCustomers] = useState([])
     const [loading,setLoading] = useState(false)
     const getStore = () => {
         setLoading(true)
@@ -31,9 +32,17 @@ function StoreDetails(){
         setLoading(false)
     }
 
+    const getStoreCustomers = () => {
+        axios.get(`http://localhost:8080/api/stores/${storeId}/customers`)
+        .then(function(response){
+            setStoreCustomers(response.data)
+        })
+        .catch((err) => console.log(err))
+    }
     useEffect(() => {
         getStore()
         getStoreInventory()
+        getStoreCustomers()
     },[])
 
     if(loading){
@@ -48,6 +57,7 @@ function StoreDetails(){
             <h2>Manager: {store.manager.email}</h2>
 
             <h4>Current Inventory ({storeInventory.length})</h4>
+            <h4>Current Customers ({storeCustomers.length})</h4>
         </div>
     )
 }
