@@ -19,18 +19,20 @@ function App() {
   },[])
   return (
     <div className="App">
-      <h1>movie rental store app</h1>
-      {
-        stores.map((store)=> {
-          return (
-            <div className="store-card" key={store.id} onClick={() => {nav(`/stores/${store.id}`)}}>
-              <h3>Store # {store.id}</h3>
-            </div>
-          )
-         
+      <div className="all-stores">
+        {
+          stores.map((store)=> {
+            return (
+              <div className="store-card" key={store.id} onClick={() => {nav(`/stores/${store.id}`)}}>
+                <h3>Store # {store.id}</h3>
+              </div>
+            )
+          
 
-        })
-      }
+          })
+        }
+      </div>
+      
     </div>
   );
 }
