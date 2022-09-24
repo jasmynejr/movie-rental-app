@@ -1,0 +1,13 @@
+.customer {
+    background-color: antiquewhite;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.all-customers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

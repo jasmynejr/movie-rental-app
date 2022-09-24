@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import {useState,useEffect} from "react"
+import Customer from '../components/Customer'
 function StoreDetails(){
     let {storeId} = useParams()
     const [store,setStore] = useState({
@@ -58,6 +59,14 @@ function StoreDetails(){
 
             <h4>Current Inventory ({storeInventory.length})</h4>
             <h4>Current Customers ({storeCustomers.length})</h4>
+            <div className="all-customers">
+                {storeCustomers.map((customer) => {
+                    return (
+                        <Customer customer={customer} />
+                    )
+                    
+                })}
+            </div>
         </div>
     )
 }

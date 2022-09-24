@@ -6,13 +6,16 @@ import './index.scss';
 import App from './App';
 import StoreDetails from './pages/StoreDetails';
 import AllMovies from './pages/AllMovies';
+import StoreInventory from './pages/StoreInventory';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App/>}/>
       <Route path="/stores/:storeId" element={<StoreDetails/>} />
+      <Route path="/stores/:storeId/inventory" element={<StoreInventory/>} />
       <Route path="/movies" element={<AllMovies/>} />
+
     </Routes>
   </BrowserRouter>
 );
