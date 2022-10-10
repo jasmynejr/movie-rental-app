@@ -7,6 +7,7 @@ import App from './App';
 import StoreDetails from './pages/StoreDetails';
 import AllMovies from './pages/AllMovies';
 import StoreInventory from './pages/StoreInventory';
+import MoviePage from './pages/MoviePage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
@@ -15,7 +16,7 @@ root.render(
       <Route path="/stores/:storeId" element={<StoreDetails/>} />
       <Route path="/stores/:storeId/inventory" element={<StoreInventory/>} />
       <Route path="/movies" element={<AllMovies/>} />
-
+      <Route path="/movies/:movieId" element={<MoviePage/>} />
     </Routes>
   </BrowserRouter>
 );

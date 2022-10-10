@@ -1,11 +1,22 @@
+$french-lilac: #966b9dff;
+$old-rose: #c98686ff;
+$mellow-apricot: #f2b880ff;
+$seashell: #fff4ecff;
+$champagne-pink: #e7cfbcff;
+
+
 .movie-card {
-    background-color: #ECE4B7;
+    background-color: $seashell;
     padding: 10px;
     margin: 10px;
     width: 200px;
     text-align: center;
-
+    border-radius: 10px;
     i {
         font-size: 25px;
+    }
+
+    &:hover {
+        background-color: $mellow-apricot;
     }
 }
