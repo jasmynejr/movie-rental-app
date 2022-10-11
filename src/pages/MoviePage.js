@@ -8,8 +8,8 @@ function MoviePage(){
 
     const getMovie = () => {
         axios.get(`http://localhost:8080/api/movies/${movieId}`)
-        .then (function(res){
-            setMovie(res.data)
+        .then (function(response){
+            setMovie(response.data)
         })
         .catch(err => console.log(err))
     }
